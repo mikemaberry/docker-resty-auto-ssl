@@ -1,9 +1,6 @@
 FROM openresty/openresty:latest-xenial
 
-RUN apk update && apk add --no-cache git curl make
-RUN go get github.com/prometheus/node_exporter
-WORKDIR ${GOPATH}/src/github.com/prometheus/node_exporter
-RUN make
+
 
 RUN /usr/local/openresty/luajit/bin/luarocks install lua-resty-auto-ssl
 
