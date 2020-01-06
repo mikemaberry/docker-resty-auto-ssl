@@ -7,3 +7,7 @@ RUN openssl req -new -newkey rsa:2048 -days 3650 -nodes -x509 -subj '/CN=sni-sup
 ADD nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
 
 ENTRYPOINT ["/usr/local/openresty/nginx/sbin/nginx", "-g", "daemon off;"]
+
+FROM nginx
+EXPOSE 80 443
+
