@@ -9,10 +9,10 @@ deploy:
   edge: true
   provider: elasticbeanstalk
   region: "us-east-2"
-  app: "openresty"
-  env: "Openresty-env"
+  app: "resty-auto-ssl"
+  env: "RestyAutoSsl-env"
   bucket_name: "elasticbeanstalk-us-east-2-886075860709"
-  bucket_path: "openresty"
+  bucket_path: "resty-auto-ssl"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
