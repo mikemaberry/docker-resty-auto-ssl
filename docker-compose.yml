@@ -1,0 +1,18 @@
+# docker-compose.yml
+version: '3'
+services:
+  nginx:
+    image: valian/docker-nginx-auto-ssl
+    restart: on-failure
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ssl_data:/etc/resty-auto-ssl
+    environment:
+      ALLOWED_DOMAINS: '([a-z]+.)?applike.me'
+  myapp:
+    image: nginx
+
+volumes:
+  ssl_data:
