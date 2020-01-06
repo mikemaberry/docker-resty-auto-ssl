@@ -10,7 +10,6 @@ ADD nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
 
 ENTRYPOINT ["/usr/local/openresty/nginx/sbin/nginx", "-g", "daemon off;"]
 
-FROM nginx
-EXPOSE 80 
-EXPOSE 443
+FROM nginx 
+EXPOSE 443 80
 
