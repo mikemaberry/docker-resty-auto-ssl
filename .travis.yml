@@ -1,13 +1,17 @@
 language: generic
 services:
   - docker
+
+before_install:
+  - docker build -t mikemaberry/nginx-auto-ssl -f Dockerfile .
+
 deploy:
   edge: true
   provider: elasticbeanstalk
   region: "us-east-2"
   app: "openresty"
   env: "Openresty-env"
-  bucket: "elasticbeanstalk-us-east-2-886075860709"
+  bucket_name: "elasticbeanstalk-us-east-2-886075860709"
   bucket_path: "openresty"
   on:
     branch: master
