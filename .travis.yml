@@ -1,0 +1,24 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t mikemaberry/docker-resty-auto-ssl -f Dockerfile .
+
+script:
+  - docker run nginx-auto-ssl
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "openresty"
+  env: "Openresty-env"
+  bucket_name: "elasticbeanstalk-us-east-2-886075860709"
+  bucket_path: "openresty"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"

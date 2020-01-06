@@ -1,4 +1,4 @@
-FROM openresty/openresty:latest-xenial
+FROM openresty/openresty:latest-bionic
 
 RUN /usr/local/openresty/luajit/bin/luarocks install lua-resty-auto-ssl
 
