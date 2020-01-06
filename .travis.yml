@@ -4,10 +4,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t mikemaberry/docker-resty-auto-ssl -f Dockerfile .
+  - docker build -t mikemaberry/nginx-auto-ssl .
 
 script:
-  - docker run nginx-auto-ssl
+  - docker run mikemaberry/nginx-auto-ssl
 
 deploy:
   edge: true
